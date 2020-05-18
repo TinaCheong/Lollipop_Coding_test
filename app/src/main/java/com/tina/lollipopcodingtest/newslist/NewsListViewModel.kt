@@ -38,6 +38,7 @@ class NewsListViewModel (private val lollipopRepository: LollipopRepository) : V
 
     init {
         _status.value = LoadApiStatus.DONE
+        getNewsList("")
     }
 
 

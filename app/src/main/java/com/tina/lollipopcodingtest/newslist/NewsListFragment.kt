@@ -6,9 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.tina.lollipopcodingtest.LollipopApplication
 import com.tina.lollipopcodingtest.databinding.FragmentListBinding
 
 class NewsListFragment : Fragment() {
+
+    private val viewModel by viewModels<NewsListViewModel> {
+        ViewModelFactory(LollipopApplication.instance.lollipopRepository)
+    }
 
     lateinit var binding: FragmentListBinding
 
