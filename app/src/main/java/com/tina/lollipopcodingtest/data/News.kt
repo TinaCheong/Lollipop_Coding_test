@@ -27,9 +27,6 @@ data class News(
     val name: String = "",
 
     @ColumnInfo(name = "news_time")
-    val created_utc: Long = 1,
-
-    @ColumnInfo(name = "news_after")
-    val after: String =""
+    val created_utc: Long = 1
 
 ) : Parcelable

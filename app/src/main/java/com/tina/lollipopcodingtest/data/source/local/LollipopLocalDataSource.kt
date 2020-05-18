@@ -6,6 +6,8 @@ import com.tina.lollipopcodingtest.data.News
 import com.tina.lollipopcodingtest.data.NewsListResult
 import com.tina.lollipopcodingtest.data.Result
 import com.tina.lollipopcodingtest.data.source.LollipopDataSource
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class LollipopLocalDataSource (private val context: Context) : LollipopDataSource {
 
@@ -14,14 +16,18 @@ class LollipopLocalDataSource (private val context: Context) : LollipopDataSourc
     }
 
     override fun getNewsByDatabase(): LiveData<List<News>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return NewsDatabase.getInstance(context).newsDatabaseDao.loadNewsList()
     }
 
     override suspend fun insertNews(news: News) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        withContext(Dispatchers.IO) {
+            NewsDatabase.getInstance(context).newsDatabaseDao.insertNews(news)
+        }
     }
 
     override suspend fun deleteAllNews() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        withContext(Dispatchers.IO) {
+            NewsDatabase.getInstance(context).newsDatabaseDao.deleteAllNews()
+        }
     }
 }
