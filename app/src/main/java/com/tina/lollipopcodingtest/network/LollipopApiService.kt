@@ -4,6 +4,8 @@ import com.bumptech.glide.gifdecoder.BuildConfig
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.tina.lollipopcodingtest.data.NewsListResult
+import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -43,7 +45,7 @@ private val retrofit = Retrofit.Builder()
 interface LollipopApiService {
 
     @GET(END_POINT)
-    fun getNewsList(@Query("limit") limit: String = DEFAULT_LIMIT, @Query("after") after: String? = null)
+    fun getNewsList(@Query("limit") limit: String = DEFAULT_LIMIT, @Query("after") after: String? = null): Deferred<NewsListResult>
 
 }
 
