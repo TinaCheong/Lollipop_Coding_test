@@ -10,5 +10,6 @@ data class News(
     val thumbnail: String = "",
     val id: String = "",
     val name: String = "",
-    val created_utc: Long = 1
+    val created_utc: Long = 1,
+    val after: String = ""
 ) : Parcelable
