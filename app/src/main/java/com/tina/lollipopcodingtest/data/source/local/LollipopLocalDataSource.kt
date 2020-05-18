@@ -8,7 +8,7 @@ import com.tina.lollipopcodingtest.data.Result
 import com.tina.lollipopcodingtest.data.source.LollipopDataSource
 
 class LollipopLocalDataSource : LollipopDataSource {
-    
+
     override suspend fun getNewsByNetwork(nextPage: String): Result<NewsListResult> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -18,6 +18,10 @@ class LollipopLocalDataSource : LollipopDataSource {
     }
 
     override suspend fun insertNews(news: News) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override suspend fun deleteAllNews() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

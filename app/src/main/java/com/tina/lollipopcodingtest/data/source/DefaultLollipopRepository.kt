@@ -20,5 +20,8 @@ class DefaultLollipopRepository (private val lollipopRemoteDataSource: LollipopD
         return lollipopLocalDataSource.insertNews(news)
     }
 
+    override suspend fun deleteAllNews() {
+        return lollipopLocalDataSource.deleteAllNews()
+    }
 
 }

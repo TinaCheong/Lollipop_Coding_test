@@ -13,4 +13,6 @@ interface LollipopRepository {
 
     suspend fun insertNews(news: News)
 
+    suspend fun deleteAllNews()
+
 }

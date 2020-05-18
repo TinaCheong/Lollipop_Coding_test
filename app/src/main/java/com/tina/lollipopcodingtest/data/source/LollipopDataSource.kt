@@ -12,4 +12,6 @@ interface LollipopDataSource {
     fun getNewsByDatabase(): LiveData<List<News>>
 
     suspend fun insertNews(news: News)
+
+    suspend fun deleteAllNews()
 }
