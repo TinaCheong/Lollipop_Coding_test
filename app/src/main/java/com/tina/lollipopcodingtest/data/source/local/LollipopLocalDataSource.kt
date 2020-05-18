@@ -7,7 +7,7 @@ import com.tina.lollipopcodingtest.data.NewsListResult
 import com.tina.lollipopcodingtest.data.Result
 import com.tina.lollipopcodingtest.data.source.LollipopDataSource
 
-class LollipopLocalDataSource : LollipopDataSource {
+class LollipopLocalDataSource (private val context: Context) : LollipopDataSource {
 
     override suspend fun getNewsByNetwork(nextPage: String): Result<NewsListResult> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
