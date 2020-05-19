@@ -65,7 +65,7 @@ override fun onDestroy() {
     }
 ```
 
-### 分頁讀取實作
+### 4. 分頁讀取實作
 在 Adapter 的 onBindViewHolder 裏，用 itemCount 和 position 去判斷目前的 item 是顯示到哪一個位置，如果它們之間只剩下 1 ，那就要拿最後那筆資料的 name 去做為 call api 的 after (nextPage)，並讀取後 4 筆的資料
 ```sh
 override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
