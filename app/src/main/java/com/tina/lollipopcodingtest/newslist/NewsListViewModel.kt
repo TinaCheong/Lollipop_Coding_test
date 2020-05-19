@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.tina.lollipopcodingtest.DataManager
 import com.tina.lollipopcodingtest.LollipopApplication
 import com.tina.lollipopcodingtest.R
 import com.tina.lollipopcodingtest.data.source.LollipopRepository
@@ -24,8 +25,6 @@ class NewsListViewModel (private val lollipopRepository: LollipopRepository) : V
         get() = _status
 
     private val _error = MutableLiveData<String>()
-
-    private var isDataLoaded: Boolean? = null
 
     private var viewModelJob = Job()
 
@@ -62,9 +61,9 @@ class NewsListViewModel (private val lollipopRepository: LollipopRepository) : V
                     is com.tina.lollipopcodingtest.data.Result.Success -> {
                         _error.value = null
                         _status.value = LoadApiStatus.DONE
-                        if (isDataLoaded == null) {
+                        if (DataManager.isLoaded) {
                             lollipopRepository.deleteAllNews()
-                            isDataLoaded = true
+                            DataManager.isLoaded = false
                         }
                         result.data.data.list.forEach {
                             lollipopRepository.insertNews(it.data)
