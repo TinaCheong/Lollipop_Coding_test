@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import com.tina.lollipopcodingtest.DataManager
 import com.tina.lollipopcodingtest.LollipopApplication
 import com.tina.lollipopcodingtest.databinding.FragmentListBinding
 
@@ -37,5 +38,10 @@ class NewsListFragment : Fragment() {
         })
 
         return binding.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        DataManager.isLoaded = true
     }
 }
