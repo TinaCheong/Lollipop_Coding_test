@@ -2,7 +2,7 @@
 主要需求︰用分頁讀取的形式實作無限列表，讀取時同時寫入資料庫中，但再次讀取時需要跟據 api 的資料同時更新。
 
 ### 1.設定 Retrofit 讀取資料的方式
-在 @GET 方法中用 limt 和 after 來設定每次拿取的資料數量和該讀取哪一筆資料後的資料（這邊設定每次是拿 4 筆）
+在 @GET 方法中用 limt 和 after 來設定每次拿取的資料數量和該讀取哪一筆資料後的幾筆資料
 
 ```sh
 private const val DEFAULT_LIMIT = "3"
@@ -66,7 +66,7 @@ override fun onDestroy() {
 ```
 
 ### 4. 分頁讀取實作
-在 Adapter 的 onBindViewHolder 裏，用 itemCount 和 position 去判斷目前的 item 是顯示到哪一個位置，如果它們之間只剩下 1 ，那就要拿最後那筆資料的 name 去做為 call api 的 after (nextPage)，並讀取後 4 筆的資料
+在 Adapter 的 onBindViewHolder 裏，用 itemCount 和 position 去判斷目前的 item 是顯示到哪一個位置，如果它們之間只剩下 1 ，那就要拿最後那筆資料的 name 去做為 call api 的 after (nextPage)，並讀取後面的資料
 ```sh
 override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = getItem(position)
